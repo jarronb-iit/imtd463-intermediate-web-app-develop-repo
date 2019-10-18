@@ -38,7 +38,7 @@
         <asp:Button ID="CalulateButton" runat="server" OnClick="Calculate_Mortgage" Text="Calculate" />
         </p>
         <br />
-        <asp:TextBox ID="resultText" runat="server" ReadOnly Width="433px"></asp:TextBox>
+        <asp:TextBox ID="resultText" runat="server" ReadOnly="true" Width="433px"></asp:TextBox>
         <br />
         <br />
     </div>
