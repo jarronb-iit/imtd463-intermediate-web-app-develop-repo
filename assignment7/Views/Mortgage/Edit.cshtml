@@ -1,0 +1,66 @@
+﻿@model assignment7.CalculationModel
+
+@{
+    ViewBag.Title = "Edit Payment";
+}
+
+    <h2>Edit Payment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>ICalculation</h4>
+    <hr />
+
+    @*Resource actions *@
+    <p>
+        @Html.ActionLink("List", "List", "Mortgage", null, new { @class = "btn btn-success" }) | 
+        @Html.ActionLink("Details", "Details", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.id }, new { @class = "btn btn-danger" })
+    </p>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.principal, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.principal, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.principal, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.years, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.years, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.years, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.rate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.rate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.rate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.monthlyPayment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(modelItem => modelItem.monthlyPayment, new { htmlAttributes = new { @class = "form-control" } });
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    <a class="btn btn-default mr-auto" onclick="  window.location.href = '@ViewBag.PreviousUrl'; ">Back</a>
+</div>

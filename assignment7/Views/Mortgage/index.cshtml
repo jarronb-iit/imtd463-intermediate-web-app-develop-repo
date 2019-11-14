@@ -1,0 +1,71 @@
+﻿@model assignment7.CalculationModel
+
+@{
+    ViewBag.Title = "Calculate Payment";
+}
+
+<h2>Calculate Payment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ICalculation</h4>
+        <hr />
+        <p>
+            @Html.ActionLink("History", "List", "Mortgage", null, new { @class = "btn btn-success" })
+        </p>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.principal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.principal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.principal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.years, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.years, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.years, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="rate" class="form-control">
+                    @{
+                        foreach (var item in ViewBag.interestRatesList)
+                        {
+                            <option value=@item customAttribute=@item>
+                                @item%
+                            </option>
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.rate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.monthlyPayment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.monthlyPayment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.monthlyPayment, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Go to List", "List", null, new { @class = "btn btn-default" })
+</div>
