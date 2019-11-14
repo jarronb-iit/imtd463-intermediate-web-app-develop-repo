@@ -1,0 +1,50 @@
+﻿@model assignment7.CalculationModel
+
+@{
+    ViewBag.Title = "PaymentDetails";
+}
+
+<h2>PaymentDetails</h2>
+
+<div>
+    <h4>ICalculation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.principle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.principle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.years)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.years)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monthlyPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monthlyPayment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
