@@ -1,0 +1,54 @@
+﻿@model assignment8.CalculationModel
+
+@{
+    ViewBag.Title = "Payment Details";
+}
+
+<h2>Payment Details</h2>
+
+<div>
+    <h4>ICalculation</h4>
+    <hr />
+
+    @*Resource actions *@
+    <p>
+        @Html.ActionLink("List", "List", "Mortgage", null, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.id }, new { @class = "btn btn-danger" })
+    </p>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.principal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.principal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.years)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.years)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monthlyPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monthlyPayment).ToString().Replace(";", "")
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<assignment8.CalculationModel>
+
+@{
+    ViewBag.Title = "List Payments";
+}
+
+    <h2>List Payments</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Index", null, new { @class = "btn btn-primary" }) | 
+    @Html.ActionLink("Delete All", "DeleteAll", null, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.principal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.years)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monthlyPayment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.principal)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.years)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.rate)%
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.monthlyPayment)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id },  new { @class = "btn btn-default" }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>
